@@ -32,7 +32,6 @@ export const Header = styled.div`
 
 
 
-
 // ESTILIZAÇÕES DO BODY
 export const Body = styled.div`
     display: flex;
@@ -42,7 +41,21 @@ export const Body = styled.div`
 `
 
 export const SectionFiltros = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 90vw;
+    width: 100%;
+`
 
+export const DivInput = styled.div` //configurações dos inputs
+    display: flex;
+    flex-direction: column;
+
+    p {
+        color: darkgray;
+        font-weight: bold;
+    }
 `
 
 export const SectionProdutos = styled.div`
@@ -54,7 +67,9 @@ export const SectionProdutos = styled.div`
 // ESTILIZAÇÕES DO FOOTER
 export const Footer = styled.div`
     display: flex;
+    justify-content: center;
     height: 10vh;
     background-color: #3D2941;
+    color: white;
 `
 
