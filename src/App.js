@@ -2,6 +2,9 @@ import React from 'react';
 import { AppDad, Body, Footer, Header, SectionFiltros, SectionProdutos } from './styled';
 import { Carrinho } from './components/Carrinho';
 import GlobalStyle from './GlobalStyles';
+import { InputValor } from './components/InputValor';
+import { InputBusca } from './components/InputBusca';
+import { InputOrdenar } from './components/InputOrdenar';
 
 
 class App extends React.Component {
@@ -20,19 +23,19 @@ class App extends React.Component {
         <Body>
           <SectionFiltros> 
             {/* Dentro dessa seção são os componentes de cada input*/}
-            {/* <InputValor></InputValor>
-            <InputValor></InputValor>
-            <inputBusca></inputBusca>
-            <InputOrdenar></InputOrdenar> */}
+            <InputValor nome='Valor Mínimo' />
+            <InputValor nome='Valor Máximo' />
+            <InputBusca nome='Busque por nome' />
+            <InputOrdenar nome='Ordenar por' />
           </SectionFiltros>
           <h1>Produtos</h1>
           <SectionProdutos>
-            {/* Dentro dessa seção vão os cards dos proodutos */}
+            {/* Dentro dessa seção vão os cards dos produtos */}
             {/* <CardProduto></CardProduto> */}
           </SectionProdutos>
         </Body>
         <Footer>
-            <h2>Footer</h2>
+            <h2>Todos os direitos reservados | 2022</h2>
         </Footer>
       </AppDad>
     );
