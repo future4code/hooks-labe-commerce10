@@ -59,10 +59,20 @@ export const DivInput = styled.div` //configurações dos inputs
 `
 
 export const SectionProdutos = styled.div`
-
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+gap: 10px;
 `
+export const DivCard = styled.div`
+  display: flex;
+  flex-direction: column;
 
+ img{
+    height: 45%;
+    
 
+ }
+`
 
 // ESTILIZAÇÕES DO FOOTER
 export const Footer = styled.div`

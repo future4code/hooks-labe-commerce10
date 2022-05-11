@@ -1,13 +1,49 @@
 import React from 'react';
-import { AppDad, Body, Footer, Header, SectionFiltros, SectionProdutos } from './styled';
+import { AppDad, Body, Footer, Header, SectionFiltros, SectionProdutos, DivCard} from './styled';
 import { Carrinho } from './components/Carrinho';
 import GlobalStyle from './GlobalStyles';
 import { InputValor } from './components/InputValor';
 import { InputBusca } from './components/InputBusca';
 import { InputOrdenar } from './components/InputOrdenar';
+import { Cards } from './components/Cards';
+import camisa01 from "./imgs/camisa01.png";
+import camisa02 from "./imgs/camisa02.png";
+import camisa03 from "./imgs/camisa03.png";
+import camisa04 from "./imgs/camisa04.png";
+import camisa05 from "./imgs/camisa05.png";
+import camisa06 from "./imgs/camisa06.png";
+
+
 
 
 class App extends React.Component {
+
+listaCamisas=[
+{ localCamisa: camisa01,
+  nome: "Camisa Preta",
+  valor: "R$:159.00"
+},
+{ localCamisa: camisa02,
+  nome: "Camisa Azul",
+  valor: " R$:99.90"
+},
+{ localCamisa: camisa03,
+  nome: "Camisa Verde",
+  valor: "R$:190.00"
+},
+{ localCamisa: camisa04,
+  nome: "Camisa Azul",
+  valor: "R$:91.50"
+},
+{ localCamisa: camisa05,
+  nome: "Camisa",
+  valor: "R$:210.00"
+},
+{ localCamisa: camisa06,
+  nome: "Camisa Azul",
+  valor: "R$:250.90"
+},
+]
 
   render() {
     return (
@@ -22,7 +58,6 @@ class App extends React.Component {
         </Header>
         <Body>
           <SectionFiltros> 
-            {/* Dentro dessa seção são os componentes de cada input*/}
             <InputValor nome='Valor Mínimo' />
             <InputValor nome='Valor Máximo' />
             <InputBusca nome='Busque por nome' />
@@ -30,8 +65,12 @@ class App extends React.Component {
           </SectionFiltros>
           <h1>Produtos</h1>
           <SectionProdutos>
-            {/* Dentro dessa seção vão os cards dos produtos */}
-            {/* <CardProduto></CardProduto> */}
+                  <Cards propsCamisa={this.listaCamisas[0].localCamisa} propsNome={this.listaCamisas[0].nome} propsValor={this.listaCamisas[0].valor}/>
+                  <Cards propsCamisa={this.listaCamisas[1].localCamisa} propsNome={this.listaCamisas[1].nome} propsValor={this.listaCamisas[1].valor}/>
+                  <Cards propsCamisa={this.listaCamisas[2].localCamisa} propsNome={this.listaCamisas[2].nome} propsValor={this.listaCamisas[2].valor}/>
+                  <Cards propsCamisa={this.listaCamisas[3].localCamisa} propsNome={this.listaCamisas[3].nome} propsValor={this.listaCamisas[3].valor}/>
+                  <Cards propsCamisa={this.listaCamisas[4].localCamisa} propsNome={this.listaCamisas[4].nome} propsValor={this.listaCamisas[4].valor}/>
+                  <Cards propsCamisa={this.listaCamisas[5].localCamisa} propsNome={this.listaCamisas[5].nome} propsValor={this.listaCamisas[5].valor}/>
           </SectionProdutos>
         </Body>
         <Footer>
