@@ -8,7 +8,9 @@ export class InputValor extends React.Component {
         return(
             <DivInput>
                 <p>{this.props.nome}</p>
-                <input type='number' />
+                <input type='number' 
+                onChange={this.props.onChangeValor} 
+                value={this.props.value} />
             </DivInput>
         );
     }

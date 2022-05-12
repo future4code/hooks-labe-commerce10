@@ -10,7 +10,6 @@ export class Carrinho extends React.Component {
     cartItems: []
   }
 
-
   removerItemCarrinho = (product) => {
     const novoCarrinho = [...this.state.cartItems];
     const itemPos = this.state.cartItems.findIndex(

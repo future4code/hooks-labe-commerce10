@@ -249,7 +249,7 @@ export const SectionProdutos = styled.div`
     max-width: 90vw;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
     gap: 10px;
 `
 
@@ -281,6 +281,7 @@ export const DivCard = styled.div`
         color: white;
         font-weight: bold;
         margin: 3%;
+        text-align: center; 
     }
     p {
         color: white;
