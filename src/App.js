@@ -6,6 +6,7 @@ import { InputValor } from './components/InputValor';
 import { InputBusca } from './components/InputBusca';
 import { InputOrdenar } from './components/InputOrdenar';
 import { Cards } from './components/Cards';
+import foguete from './imgs/foguete.png';
 import camisa01 from "./imgs/camisa01.png";
 import camisa02 from "./imgs/camisa02.png";
 import camisa03 from "./imgs/camisa03.png";
@@ -74,8 +75,8 @@ class App extends React.Component {
         <GlobalStyle />
         <Header>
           <div>
-            <img src="https://cdn-icons.flaticon.com/png/512/4710/premium/4710098.png?token=exp=1652145457~hmac=31ce7aa426610c9fc771aaeb92ca7bb6" alt="Imagem de um foquete subindo na diagonal" />
-            <h2>Viagens Espaciais</h2>
+            <img src={foguete} />
+            <h2>CAMISETAS DIVERTIDAS</h2>
           </div>
           <Carrinho></Carrinho>
         </Header>
@@ -92,7 +93,7 @@ class App extends React.Component {
           </SectionProdutos>
         </Body>
         <Footer>
-          <h2>Todos os direitos reservados | 2022</h2>
+          <h2>	&copy; Todos os direitos reservados | 2022</h2>
         </Footer>
       </AppDad>
     );
