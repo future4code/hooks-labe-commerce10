@@ -1,0 +1,38 @@
+[
+  {
+    "localCamisa": "../imgs/camisa01.png",
+    "nome": "Camisa Preta",
+    "valor": 159.00,
+    "id": 1
+  },
+  {
+    "localCamisa": "../imgs/camisa01.png",
+    "nome": "Camisa Azul",
+    "valor": 99.90,
+    "id": 2
+  },
+  {
+    "localCamisa": "../imgs/camisa01.png",
+    "nome": "Camisa Azul",
+    "valor": 190.00,
+    "id": 3
+  },
+  {
+    "localCamisa": "../imgs/camisa01.png",
+    "nome": "Camisa Preta",
+    "valor": 91.50,
+    "id": 4
+  },
+  {
+    "localCamisa": "../imgs/camisa01.png",
+    "nome": "Camisa Preta",
+    "valor": 210.00,
+    "id": 5
+  },
+  {
+    "localCamisa": "../imgs/camisa01.png",
+    "nome": "Camisa Preta",
+    "valor": 250.90,
+    "id": 6
+  }
+]

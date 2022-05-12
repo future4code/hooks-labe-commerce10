@@ -8,9 +8,12 @@ export class InputOrdenar extends React.Component {
         return(
             <DivInput>
                 <p>{this.props.nome}</p>
-                <select name='ordenar' >
-                    <option value='crescente' >Crescente</option>
-                    <option value='decrescente' >Decrescente</option>
+                <select name='ordenar' 
+                value={this.props.value}
+                onChange={this.props.onChangeOrdenar} >
+                    <option value='' >Selecione</option>
+                    <option value='crescente' >Menor Preço</option>
+                    <option value='decrescente' >Maior Preço</option>
                 </select>
             </DivInput>
         );

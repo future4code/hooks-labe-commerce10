@@ -8,7 +8,9 @@ export class InputBusca extends React.Component {
         return(
             <DivInput>
                 <p>{this.props.nome}</p>
-                <input type='text' />
+                <input type='text'
+                onChange={this.props.onChangeBusca} 
+                value={this.props.value} />
             </DivInput>
         );
     }
