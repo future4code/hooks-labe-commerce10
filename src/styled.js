@@ -234,6 +234,7 @@ border: none;
 background-color: #54295B;
 color: #ffffff;
 font-size: small;
+align-self: center;
 cursor: pointer;
 
 :hover {
@@ -269,7 +270,7 @@ export const Popupone = styled.div`
 `
 
 export const Popupinner = styled.div`
-   margin-right: 250px;
+  margin-right: 250px;
   width: 15vw;
   height: 600vh;
 `
@@ -282,6 +283,20 @@ export const SectionFiltros = styled.div`
     align-items: center;
     max-width: 70vw;
     width: 100%;
+
+    button {
+      align-self: center;
+      border: 1px solid #3D2941;
+      border-radius: 10px;
+      color: white;
+      background-color: #3D2941;
+      cursor: pointer;
+    }
+    button:hover {
+      color: #3D2941;
+      background-color: white;
+      border: 1px solid white;
+    }
 `
 
 
