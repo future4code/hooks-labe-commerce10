@@ -38,7 +38,7 @@ O objetivo foi criar uma landing Page de uma empresa de tênis voltado para o co
     <p style="font-weight: bold;">🔗 Link do projeto no Surge</p>
 </h1>
 
-# FALTA O LINK DO SURGE (COLOCR AQUI)
+https://perpetual-sound.surge.sh
 
 <h2>
     <br>
