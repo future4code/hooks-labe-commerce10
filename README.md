@@ -97,7 +97,7 @@ _Qualquer dúvida ou sugestão, chama no contatinho!_
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/Xoxo31"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/92761420?v=4" width="100px;" alt=""/><br /><sub><b>Ana Lívia Cruz</b></sub></a><br /><a target="">LinkedIn</a> </td> 
+    <td align="center"><a href="https://github.com/Xoxo31"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/92761420?v=4" width="100px;" alt=""/><br /><sub><b>Ana Lívia Cruz</b></sub></a><br /><a target="_blank" href="">LinkedIn</a> </td> 
      <td align="center"><a href="https://github.com/elisabetealves"><img style="border-radius: 50%;" src="https://unavatar.now.sh/github/elisabetealves" width="100px;" alt=""/><br /><sub><b>Elisabete Alves</b></sub></a><br /><a target="_blank" href="https://www.linkedin.com/mwlite/in/elisabete-alves-675637135">LinkedIn</a> </td>    
     <td align="center"><a href="https://github.com/Rafael563"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/98034191?v=4" width="100px;" alt=""/><br /><sub><b>Rafael Santos da silva</b></sub></a><br /><a target="_blank" href="">LinkedIn</a> </td>    
   </tr>
