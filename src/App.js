@@ -1,6 +1,6 @@
 import React from 'react';
 import GlobalStyle from './GlobalStyles';
-import { AppDad, Body, Footer, Header, SectionFiltros, SectionProdutos } from './styled';
+import { AppDad, Body, Footer, Header, SectionFiltros } from './styled';
 import { Cart, BotaoF, BotaoFCarrinho, FinalizarCompra, CarrinhoH2, CarrinhoText, UlStyled, Itens, Total, LiStyled } from './styled'
 import { CardsProdutos, ImgSatelites, InformacoesCard, CardsTitulos, Preco, Button, TituloHeader, TitleProduct, ContainerPrincipal } from './styled'
 import { InputValor } from './components/InputValor';
@@ -23,18 +23,22 @@ class App extends React.Component {
     count: 0
   }
 
-  ordenarProdutos = () => {
-    let produtosOrdenados = products;
-    produtosOrdenados = produtosOrdenados.filter((produto) => {
+  componentDidMount() {
+    this.pegaLista()
+  }
 
-      if (produto.preco < this.state.minimoValue) {
-        return false;
-      }
-      return true;
-    });
+  pegaLista = () => {
+    const stringCarrinho = localStorage.getItem('CARRINHO')
+    if(stringCarrinho){
+      const objetoCarrinho = JSON.parse(stringCarrinho)
+      this.setState({ cartItems: objetoCarrinho })
+    }
+  }
 
-    return produtosOrdenados;
-  };
+  componentDidUpdate() {
+    const objetoCarrinho = [...this.state.cartItems]
+    localStorage.setItem('CARRINHO', JSON.stringify(objetoCarrinho))
+  }
 
   adicionarItemCarrinho = (product) => {
     const novoCarrinho = [...this.state.cartItems];
@@ -77,20 +81,42 @@ class App extends React.Component {
   };
 
   mostrarProdutos = () => {
-    return this.ordenarProdutos().map((product) => {
-      return (
-        <CardsProdutos key={product.id}>
-          <ImgSatelites src={product.icone} />
-          <InformacoesCard>
-            <CardsTitulos>{product.nome}</CardsTitulos>
-            <Preco>R${product.preco}</Preco>
-            <Button onClick={() => this.adicionarItemCarrinho(product)}>
-              Adicionar ao carrinho
-            </Button>
-          </InformacoesCard>
-        </CardsProdutos>
-      );
-    });
+    let produtosOrdenados = [...products];
+    return produtosOrdenados
+      .filter((product) => {
+        return product.nome.toLocaleLowerCase().includes(
+          this.state.busca.toLocaleLowerCase())
+      })
+      .filter((product) => {// só retorna falso se tiver valor E ele for menor que o minimo
+        return this.state.valorMinimo === '' || this.state.valorMinimo <= product.preco
+      })
+      .filter((product) => {// só retorna falso se tiver valor E ele for maior que o máximo
+        return this.state.valorMaximo === '' || this.state.valorMaximo >= product.preco
+      })
+      .sort((itemAtual, proximoItem) => {
+        switch (this.state.ordenar) {
+          case 'crescente':
+            return itemAtual.preco - proximoItem.preco
+          case 'decrescente':
+            return proximoItem.preco - itemAtual.preco
+          default:
+            return true
+        }
+      })
+    .map((product) => {
+              return (
+                <CardsProdutos key={product.id}>
+                  <ImgSatelites src={product.icone} />
+                  <InformacoesCard>
+                    <CardsTitulos>{product.nome}</CardsTitulos>
+                    <Preco>R${product.preco}</Preco>
+                    <Button onClick={() => this.adicionarItemCarrinho(product)}>
+                      Adicionar ao carrinho
+                    </Button>
+                  </InformacoesCard>
+                </CardsProdutos>
+              );
+            });
   };
 
   renderTotal = () => {
@@ -105,60 +131,28 @@ class App extends React.Component {
     this.setState({ ...this.state, buttonPopup: !this.state.buttonPopup });
   };
 
+  onChangeValorMinimo = (event) => {
+    this.setState({ valorMinimo: event.target.value })
+  }
 
-  // onChangeValorMinimo = (event) => {
-  //   this.setState({ valorMinimo: event.target.value })
-  // }
+  onChangeValorMaximo = (event) => {
+    this.setState({ valorMaximo: event.target.value })
+  }
 
-  // onChangeValorMaximo = (event) => {
-  //   this.setState({ valorMaximo: event.target.value })
-  // }
+  onChangeBusca = (event) => {
+    this.setState({ busca: event.target.value })
+  }
 
-  // onChangeBusca = (event) => {
-  //   this.setState({ busca: event.target.value })
-  // }
+  onChangeOrdenar = (event) => {
+    this.setState({ ordenar: event.target.value })
+  }
 
-  // onChangeOrdenar = (event) => {
-  //   this.setState({ ordenar: event.target.value })
-  // }
-
+  onClickZerarFiltro = () => {
+    this.setState({ valorMinimo: '', valorMaximo: '',
+    busca: '', ordenar: '', })
+  }
 
   render() {
-    // const listaCamisasComponente = this.state.listaCamisas
-    //   .filter( //filtrando pela palavra escrita e testando com o includes se encontra!
-    //     (item) => {
-    //       return item.nome.toLocaleLowerCase().includes(
-    //         this.state.busca.toLocaleLowerCase())
-    //     }
-    //   ).filter(// só retorna falso se tiver valor E ele for menor que o minimo
-    //     (item) => {
-    //       return this.state.valorMinimo === '' || this.state.valorMinimo <= item.valor
-    //     }
-    //   ).filter(// só retorna falso se tiver valor E ele for maior que o máximo
-    //     (item) => {
-    //       return this.state.valorMaximo === '' || this.state.valorMaximo >= item.valor
-    //     }
-    //   ).sort(// só retorna falso se tiver valor E ele for maior que o máximo
-    //     (itemAtual, proximoItem) => {
-    //       switch (this.state.ordenar) {
-    //         case 'crescente':
-    //           return itemAtual.valor - proximoItem.valor
-    //         case 'decrescente':
-    //           return proximoItem.valor - itemAtual.valor
-    //         default:
-    //           return true
-    //       }
-    //     }
-    //   ).map( //mapeando a lista com as camisas filtradas ou não
-    //     (item) => {
-    //       return (
-    //         <Cards key={item.id} propsCamisa={item.localCamisa}
-    //           propsNome={item.nome}
-    //           propsValor={item.valor} />
-    //       )
-    //     }
-    //   )
-
     return (
       <AppDad>
         <GlobalStyle />
@@ -168,15 +162,15 @@ class App extends React.Component {
             <TituloHeader>CAMISETAS DIVERTIDAS</TituloHeader>
             <Cart src={cart} onClick={this.toggleModal}></Cart>
             <CarrinhoText>Meu Carrinho</CarrinhoText>
-            <Itens>{this.state.count} produtos</Itens>
+            <Itens>{this.state.cartItems.length} produtos</Itens>
           </div>
           <Popup trigger={this.state.buttonPopup}>
             <BotaoF onClick={this.toggleModal}>Fechar</BotaoF>
             <CarrinhoH2>Carrinho</CarrinhoH2>
             <UlStyled>
-              {this.state.cartItems.map((product) => {
+              {this.state.cartItems.map((product, index) => {
                 return (
-                  <LiStyled>
+                  <LiStyled key={index}>
                     {product.quantidade} - {product.product.nome} R$
                     {product.product.preco * product.quantidade}{' '}
                     <BotaoFCarrinho
@@ -200,6 +194,7 @@ class App extends React.Component {
         </Header>
         <Body>
           <SectionFiltros>
+            <button onClick={this.onClickZerarFiltro} >Zerar Filtro</button>
             <InputValor nome='Valor Mínimo'
               onChangeValor={(event) => this.onChangeValorMinimo(event)}
               value={this.state.valorMinimo} />
